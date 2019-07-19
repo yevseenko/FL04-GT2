@@ -28,38 +28,57 @@
   //triangle
   const triangle = document.querySelector('#triangle'),
     triangleSideA = document.querySelector('#triangleSideA'),
-    triangleSideB = document.querySelector('#triangleSideB'),
-    triangleDiagonal = document.querySelector('#triangleDiagonal');
+    triangleSideB = document.querySelector('#triangleSideB');
 
-  function changeParams(w, h, el) {
+  function draw(h, w, el) {
     if (w > 40 || h > 40 || w < 0 || h < 0) {
       alert(`Invalid value for element => ${el.getAttribute('name')}`);
       return;
     }
-    el.style.width = `${w*10}px`;
     el.style.height = `${h*10}px`;
+    el.style.width = `${w*10}px`;
+  }
+
+  function drawParallelogram(sideA = 10, sideB = 20, angle = 20) {
+    const obj = {
+      sideA: sideA,
+      sideB: sideB,
+      angle: angle
+    };
+    obj.area = obj.sideA * obj.sideB * Math.abs(Math.sin(obj.angle));
+    obj.height = obj.area / obj.sideB;
+    draw(obj.height, obj.sideB, par);
+    changeSkew(obj.angle, par);
+    console.log(obj);
+  }
+
+  function drawCircle(radius = 10) {
+    const obj = {
+      radius: radius,
+      diameter: radius * 2
+    };
+    obj.area = Math.pow(obj.radius, 2) * Math.PI;
+    obj.circumference = obj.diameter * Math.PI;
+    draw(obj.diameter, obj.diameter, circle);
+  }
+
+  function drawEllipse(ellipseHR, ellipseVR) {
+    const obj = {
+      hRad: ellipseHR,
+      vRad: ellipseVR
+    };
+    obj.area = obj.vRad * obj.hRad * Math.PI;
   }
 
   function changeSkew(skew, el) {
     el.style.transform = `skew(-${skew}deg)`;
   }
 
-  btn.onclick = function () {
-    changeParams(parSideA.value || 20, parSideB.value || 10, par);
-    changeSkew(parAngle.value || 20, par);
-
-    const containerHW = circleR.value * 2 || 10;
-    changeParams(containerHW || 20, containerHW || 20, circle);
-
-    const ellipseH = verticalR.value * 2;
-    const ellipseW = horizontalR.value * 2;
-    changeParams(ellipseW || 20, ellipseH || 10, ellipse);
-
-    changeParams(squareSide.value || 20, squareSide.value || 20, square);
-
-    changeParams(rectangleSideA.value || 20, rectangleSideB.value || 10, rectangle);
-
-    changeParams(triangleSideA.value || 20, triangleSideB.value || 10, triangle);
-    changeSkew(-64, triangleDiagonal);
+  function render() {
+    drawParallelogram(parSideA.value, parSideB.value, parAngle.value);
+    drawCircle(circleR.value, circle);
   }
+
+  btn.onclick = render;
+  render();
 }());
