@@ -28,7 +28,8 @@
   //triangle
   const triangle = document.querySelector('#triangle'),
     triangleSideA = document.querySelector('#triangleSideA'),
-    triangleSideB = document.querySelector('#triangleSideB');
+    triangleSideB = document.querySelector('#triangleSideB'),
+    triangleDiagonal = document.querySelector('#triangleDiagonal');
 
   function changeParams(w, h, el) {
     if (w > 40 || h > 40 || w < 0 || h < 0) {
@@ -59,5 +60,6 @@
     changeParams(rectangleSideA.value || 20, rectangleSideB.value || 10, rectangle);
 
     changeParams(triangleSideA.value || 20, triangleSideB.value || 10, triangle);
+    changeSkew(-64, triangleDiagonal);
   }
 }());

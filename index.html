@@ -90,20 +90,23 @@
     </div>
     <hr />
     <div class="grid-container">
-      <div class="triangle-container" id="triangle"></div>
+      <div class="triangle-root">
+        <div class="triangle-container" id="triangle"></div>
+        <div class="triangle-diagonal" id="triangleDiagonal"></div>
+      </div>
       <div class="params">
-          <label for="triangleSideA">A:</label>
-          <input type="text" id="triangleSideA" />
-          <label for="triangleSideB">B:</label>
-          <input type="text" id="triangleSideB" />
-          <div>
-            <label for="">A:</label>
-            <span id="">-</span>
-            <label for="">B:</label>
-            <span id="">-</span>
-            <label for="">C:</label>
-            <span id="">-</span>
-          </div>
+        <label for="triangleSideA">A:</label>
+        <input type="text" id="triangleSideA" />
+        <label for="triangleSideB">B:</label>
+        <input type="text" id="triangleSideB" />
+        <div>
+          <label for="">A:</label>
+          <span id="">-</span>
+          <label for="">B:</label>
+          <span id="">-</span>
+          <label for="">C:</label>
+          <span id="">-</span>
+        </div>
       </div>
     </div>
     <button class="btn" id="calculate">Calculate!</button>
