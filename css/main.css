@@ -29,6 +29,10 @@
   margin-right: 30px;
 }
 
+.transition {
+  transition: width 1s, height 1s;
+}
+
 .par-container {
   border: 5px solid #000;
   transform: skew(-20deg);
@@ -40,27 +44,19 @@
 }
 
 .ellipse-container {
-  width: 200px;
-  height: 100px;
   border-radius: 50%;
   border: 5px solid #000;
 }
 
 .square-container {
-  width: 200px;
-  height: 200px;
   border: 5px solid #000;
 }
 
 .rectangle-container {
-  width: 200px;
-  height: 100px;
   border: 5px solid #000;
 }
 
 .triangle-root {
-  width: 200px;
-  height: 100px;
   overflow: hidden;
   border-bottom: 5px solid #000;
   border-left: 5px solid #000;
@@ -74,9 +70,30 @@
 
 }
 
+.calc {
+  text-align: center;
+  padding: 25px;
+}
+
+.checkbox-label {
+  font-size: 1.2em;
+  margin-left: 20px;
+}
+
 .btn {
-  margin-left: 90%;
-  margin-bottom: 50px;
+  border: 2px solid #000;
+  background: #fff;
+  font-size: 1.5em;
+  border-top-left-radius: 25%;
+  border-top-right-radius: 25%;
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+  padding: 10px 20px;
+}
+
+.btn:hover {
+  background: #ddd;
+  cursor: pointer;
 }
 
 input {
